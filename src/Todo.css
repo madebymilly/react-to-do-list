@@ -1,0 +1,13 @@
+.Todo {
+  display: flex;
+  justify-content: center;
+}
+
+.Todo h3 {
+  cursor: pointer;
+}
+
+.Todo--done h3 {
+  text-decoration: line-through;
+  color: #999;
+}
