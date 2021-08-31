@@ -4,7 +4,7 @@ export default class EditTodoForm extends Component {
 
   constructor(props) {
     super(props)
-  
+
     this.state = {
        task: this.props.todo.task
     }
@@ -21,18 +21,18 @@ export default class EditTodoForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.edit(this.props.todo.id, this.state.task)
+    this.props.update(this.props.todo.id, this.state.task)
     this.setState({
       todo: ''
     })
   }
-  
+
 
   render() {
     return (
       <form className="EditTodoForm" onSubmit={this.handleSubmit}>
         <input type="text" id="task" name="task" value={this.state.task} onChange={this.handleChange} />
-        <button>Edit</button>
+        <button>update</button>
       </form>
     )
   }
