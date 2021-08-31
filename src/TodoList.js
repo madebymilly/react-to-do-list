@@ -63,7 +63,7 @@ class TodoList extends Component {
         <h1>React To Do List</h1>
         <ul>
           {this.state.todos.map(todo =>
-            <Todo key={todo.id} id={todo.id} todo={todo} update={this.update} editable={this.editable} delete={this.delete} done={this.done} />
+            <Todo key={todo.id} id={todo.id} todo={todo} update={this.update} delete={this.delete} done={this.done} />
           )}
 
         </ul>
