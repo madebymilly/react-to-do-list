@@ -47,9 +47,11 @@ class Todo extends Component {
       <li className={this.props.todo.done ? "Todo completed" : "Todo"}>
         {!this.state.isEditing
           ? <>
-              <h3 onClick={this.handleToggle}>{todo.task}</h3>
+            <div className="Todo-task" onClick={this.handleToggle}>{todo.task}</div>
+            <div className='Todo-buttons'>
               <button onClick={this.toggleForm}><i className='fas fa-pen' /></button>
               <button onClick={this.handleDelete}><i className='fas fa-trash' /></button>
+            </div>
             </>
           : <>
               <form className="Todo-edit-form" onSubmit={this.handleSubmit}>
