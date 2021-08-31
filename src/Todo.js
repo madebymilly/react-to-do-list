@@ -17,9 +17,9 @@ class Todo extends Component {
     });
   }
 
-  handleDone = (e) => {
+  handleToggle = (e) => {
     e.preventDefault();
-    this.props.done(this.props.todo.id);
+    this.props.toggleDone(this.props.todo.id);
   }
 
   handleDelete = (e) => {
@@ -44,12 +44,12 @@ class Todo extends Component {
     const { todo } = this.props
 
     return (
-      <li className={`Todo ${todo.done && 'completed'}`}>
+      <li className={this.props.todo.done ? "Todo completed" : "Todo"}>
         {!this.state.isEditing
           ? <>
-              <h3 onClick={this.handleDone}>{todo.task}</h3>
-              <button onClick={this.toggleForm}>edit</button>
-              <button onClick={this.handleDelete}>X</button>
+              <h3 onClick={this.handleToggle}>{todo.task}</h3>
+              <button onClick={this.toggleForm}><i className='fas fa-pen' /></button>
+              <button onClick={this.handleDelete}><i className='fas fa-trash' /></button>
             </>
           : <>
               <form className="Todo-edit-form" onSubmit={this.handleSubmit}>

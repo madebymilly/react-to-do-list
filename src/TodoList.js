@@ -17,9 +17,8 @@ class TodoList extends Component {
 
     this.create = this.create.bind(this)
     this.update = this.update.bind(this)
-    this.editable = this.editable.bind(this)
     this.delete = this.delete.bind(this)
-    this.done = this.done.bind(this)
+    this.toggleDone = this.toggleDone.bind(this)
   }
 
   create(task) {
@@ -30,30 +29,20 @@ class TodoList extends Component {
   }
 
   update(id, task) {
-    //console.log('edit', id, task)
     this.setState(prevState => ({
       todos: prevState.todos.map(todo => todo.id === id ? { ...todo, task: task, editable: false } : todo )
     }))
   }
 
-  editable(id) {
-    //console.log('editable', id)
-    this.setState(prevState => ({
-      todos: prevState.todos.map(todo => todo.id === id ? { ...todo, editable: true } : todo )
-    }))
-  }
-
   delete(id) {
-    // console.log('delete', id)
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.id !== id)
     }))
   }
 
-  done(id) {
-    //console.log('done', id)
+  toggleDone(id) {
     this.setState(prevState => ({
-      todos: prevState.todos.map(todo => todo.id === id ? { ...todo, done: true } : todo )
+      todos: prevState.todos.map(todo => todo.id === id ? { ...todo, done: !todo.done } : todo )
     }))
   }
 
@@ -63,7 +52,7 @@ class TodoList extends Component {
         <h1>React To Do List</h1>
         <ul>
           {this.state.todos.map(todo =>
-            <Todo key={todo.id} id={todo.id} todo={todo} update={this.update} delete={this.delete} done={this.done} />
+            <Todo key={todo.id} id={todo.id} todo={todo} update={this.update} delete={this.delete} toggleDone={this.toggleDone} />
           )}
 
         </ul>
