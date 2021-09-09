@@ -22,6 +22,12 @@ class TodoList extends Component {
     this.toggleDone = this.toggleDone.bind(this)
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('in componentDidUpdate')
+  //   console.log(prevState.todos)
+  //   console.log(this.state.todos)
+  // }
+
   create(task) {
     const newTodo = { id: uuid(), task: task, editable: false, done: false };
     this.setState(prevState => ({

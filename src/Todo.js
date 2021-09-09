@@ -11,6 +11,12 @@ class Todo extends Component {
     }
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log('in (todo) componentDidUpdate')
+  //   console.log(prevProps.todo.task)
+  //   console.log(this.props.todo.task)
+  // }
+
   toggleForm = () => {
     this.setState({
       isEditing: !this.state.isEditing
